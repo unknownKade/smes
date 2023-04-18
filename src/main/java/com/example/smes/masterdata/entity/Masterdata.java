@@ -1,15 +1,16 @@
 package com.example.smes.masterdata.entity;
 
+import com.example.smes.global.common.JpaAuditingEntity;
 import jakarta.persistence.*;
-import lombok.ToString;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 
 @Entity
-@ToString
 @Table(name= "masterdata")
-public class MasterData {
+@EntityListeners(AuditingEntityListener.class)
+public class Masterdata extends JpaAuditingEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO) 
     private String id;
     private String category;
     private String name;
-    private String type;
 }
